@@ -149,13 +149,16 @@ void RemoteDisplayWidget::setDesktopSize(quint16 width, quint16 height) {
         Q_ARG(quint16, width), Q_ARG(quint16, height));
 }
 
-void RemoteDisplayWidget::connectToHost(const QString &host, quint16 port) {
+void RemoteDisplayWidget::connectToHost(const QString &host, quint16 port, const QString &username, const QString &password) {
     Q_D(RemoteDisplayWidget);
 
     QMetaObject::invokeMethod(d->eventProcessor, "setSettingServerHostName",
         Q_ARG(QString, host));
     QMetaObject::invokeMethod(d->eventProcessor, "setSettingServerPort",
         Q_ARG(quint16, port));
+        QMetaObject::invokeMethod(d->eventProcessor, "setSettingAuthentication",
+            Q_ARG(QString, username),
+            Q_ARG(QString, password));
 
     qDebug() << "Connecting to" << host << ":" << port;
     QMetaObject::invokeMethod(d->eventProcessor, "run");
@@ -194,7 +197,7 @@ void RemoteDisplayWidget::mousePressEvent(QMouseEvent *event) {
 }
 
 void RemoteDisplayWidget::wheelEvent(QWheelEvent *event)
-{  
+{
     Q_D(RemoteDisplayWidget);
     d->eventProcessor->sendMouseWheelEvent(event);
 

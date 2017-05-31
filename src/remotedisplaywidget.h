@@ -14,7 +14,7 @@ public:
     ~RemoteDisplayWidget();
 
     void setDesktopSize(quint16 width, quint16 height);
-    void connectToHost(const QString &host, quint16 port);
+    void connectToHost(const QString &host, quint16 port, const QString &username, const QString &password);
     void disconnect();
 
     virtual QSize sizeHint() const;

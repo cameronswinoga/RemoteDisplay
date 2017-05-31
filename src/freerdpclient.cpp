@@ -531,8 +531,8 @@ void FreeRdpClient::initFreeRDP()
   update->BeginPaint = BeginPaintCallback;
 
   auto settings = freeRdpInstance->context->settings;
-  settings->Username = _strdup("cameron");
-  settings->Password = _strdup("test");
+  settings->Username = _strdup("");
+  settings->Password = _strdup("");
 
   settings->SoftwareGdi = TRUE;
   settings->BitmapCacheV3Enabled = TRUE;
@@ -603,6 +603,14 @@ void FreeRdpClient::setSettingDesktopSize(quint16 width, quint16 height)
   auto settings = freeRdpInstance->settings;
   settings->DesktopWidth = width;
   settings->DesktopHeight = height;
+}
+
+void FreeRdpClient::setSettingAuthentication(const QString &username, const QString &password)
+{
+  initFreeRDP();
+  auto settings = freeRdpInstance->settings;
+  settings->Username = _strdup(username.toLocal8Bit().constData());
+  settings->Password = _strdup(password.toLocal8Bit().constData());
 }
 
 void FreeRdpClient::qt_OnChannelConnectedEventHandler(rdpContext* context, ChannelConnectedEventArgs* e)

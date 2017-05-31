@@ -39,6 +39,7 @@ public slots:
     void setSettingServerHostName(const QString &host);
     void setSettingServerPort(quint16 port);
     void setSettingDesktopSize(quint16 width, quint16 height);
+    void setSettingAuthentication(const QString &username, const QString &password);
 
     void run();
     void requestStop();

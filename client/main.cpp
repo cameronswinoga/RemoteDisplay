@@ -45,11 +45,9 @@ int main(int argc, char *argv[]) {
 
     w.resize(width, height);
     w.setDesktopSize(width, height);
-    w.connectToHost(host, port);
+    w.connectToHost(host, port, "cameron", "test");
     w.show();
 
     QObject::connect(&w, SIGNAL(disconnected()), &a, SLOT(quit()));
-
     return a.exec();
 }
-
