@@ -6,6 +6,11 @@ set(CMAKE_COLOR_MAKEFILE ON)
 # search the FreeRDP Library
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 
+set(FREERDP_INCLUDE_DIR /usr/local/include/freerdp2)
+set(FREERDP_LIBRARIES /usr/local/lib/freerdp)
+set(WINPR_INCLUDE_DIR /usr/local/include/winpr1)
+set(WINPR_LIBRARIES /usr/local/lib)
+
 find_package(FreeRDP REQUIRED)
 MESSAGE("found FREERDP_INCLUDE_DIR: ${FREERDP_INCLUDE_DIR}")
 MESSAGE("found FREERDP_LIBRARIES: ${FREERDP_LIBRARIES}")

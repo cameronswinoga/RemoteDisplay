@@ -531,8 +531,8 @@ void FreeRdpClient::initFreeRDP()
   update->BeginPaint = BeginPaintCallback;
 
   auto settings = freeRdpInstance->context->settings;
-  settings->Username = _strdup("bunny");
-  settings->Password = _strdup("secret");
+  settings->Username = _strdup("cameron");
+  settings->Password = _strdup("test");
 
   settings->SoftwareGdi = TRUE;
   settings->BitmapCacheV3Enabled = TRUE;
