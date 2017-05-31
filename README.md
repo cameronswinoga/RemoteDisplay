@@ -5,7 +5,7 @@ RemoteDisplay is a RDP client library built upon [Qt](http://qt.digia.com/) and 
 The library consists of a single widget [RemoteDisplayWidget](src/remotedisplaywidget.h)
 which renders the remote display inside it. The widgets sends any mouse movement
 or keyboard button presses to the remote host as well as playback any audio the
-remote host might playback. 
+remote host might playback.
 
 ## Usage example
 ```C++
@@ -45,16 +45,16 @@ for Windows and Linux.
 Prerequisites:
 * Git
 * CMake 2.8.11 or newer
-* FreeRDP from https://github.com/FreeRDP/FreeRDP
+* FreeRDP from https://github.com/pm-bernhard/FreeRDP
 * Qt 5 or newer
 * gcc 4.5 or newer (for some c++11 features)
 
 #### Building FreeRDP
 To build the FreeRDP, clone its repo first:
 ```
-$ git clone https://github.com/FreeRDP/FreeRDP.git
+$ git clone https://github.com/pm-bernhard/FreeRDP
 $ cd FreeRDP
-$ To use the last tested version: git reset --hard 070587002c363c1a1094b3368182b5acf6b4bc11
+$ To use the last tested version: git checkout tags/1.0.2
 ```
 Next, cd to its directory and configure the project with cmake:
 ```
@@ -71,10 +71,11 @@ $ sudo make install
 #### Building RemoteDisplay
 First clone the repo:
 ```
-$ git clone https://github.com/pm-bernhard/RemoteDisplay.git
+$ git clone https://github.com/cameronswinoga/RemoteDisplay.git
 $ git checkout updating
 ```
 Next, cd to its directory and configure, build and install it:
+NOTE: You may need to copy some file around/change where cmake is looking!
 ```
 $ cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr .
 $ make
